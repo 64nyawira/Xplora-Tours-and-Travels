@@ -1,0 +1,13 @@
+POST http://localhost:4115/tour/create
+Content-Type: application/json
+
+{
+    "destination": "Cairo",
+    "duration": 4,
+    "price": 500,
+    "description": "See the ancient Egypt",
+    "createdAt": "2022-02-20",
+    "updatedAt": "2022-02-21",
+    "isActive": true,
+    "tourType": "Vacation"
+}

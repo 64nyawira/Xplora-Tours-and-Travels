@@ -1,0 +1,11 @@
+POST http://localhost:4115/review/create
+Content-Type: application/json
+
+{
+    "userId":"159f6f03-8f1b-4ead-976e-bdaf2bcd59ee",
+    "tourId":"f4b2c681-0b9f-4263-a43d-3b1d024002b7",
+    "reviewDate":"22-2-2022",
+    "rating":5,
+    "comment":"good services",
+    "isActive": true
+}

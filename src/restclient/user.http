@@ -1,0 +1,13 @@
+POST http://localhost:4115/user/create 
+Content-Type: application/json
+
+{
+    "name":"cee",
+    "image":"htfr dn8 9",
+    "password":"ghdvxb",
+    "phone_no":"0712345678",
+    "email":"cee@gmail.com",
+    "createdAt":"22-3-2022",
+    "updatedAt":"20-2-2024",
+    "role":"User"
+}

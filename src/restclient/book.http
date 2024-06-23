@@ -1,0 +1,9 @@
+POST http://localhost:4115/booking/create-new 
+Content-Type: application/json
+
+{
+    "userId":"159f6f03-8f1b-4ead-976e-bdaf2bcd59ee",
+    "tourId":"f4b2c681-0b9f-4263-a43d-3b1d024002b7",
+    "status":"verified",
+    "totalPrice":300
+}

@@ -1,0 +1,72 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+model Users{
+    id String @id
+    name String @db.VarChar(255)
+    image String
+    email String
+    password String
+    phone_no String
+}
+
+model User {
+  id             String    @id @default(uuid())
+  username       String    @unique
+  email          String    @unique
+  password       String
+  role           String      @default("USER")
+  firstName      String?
+  lastName       String?
+  phone          String?
+  address        String?
+  profilePicture String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  bookings       Booking[]
+  reviews        Review[]
+}
+
+model Tour {
+  id          String    @id @default(uuid())
+  destination String
+  duration    Int
+  price       Float
+  tourType    String
+  description String?
+  createdAt   DateTime?  @default(now())
+  updatedAt   DateTime?  @updatedAt
+  isActive    Boolean?   @default(true)
+  bookings    Booking[]
+  reviews     Review[]
+}
+
+model Booking {
+  id          String    @id @default(uuid())
+  // user        User      @relation(fields: [userId], references: [id])
+  userId      String
+  tour        Tour      @relation(fields: [tourId], references: [id])
+  tourId      String
+  bookingDate DateTime  @default(now())
+  status      String    @default("booked")
+  totalPrice  Float
+  users       User[]
+}
+
+model Review {
+  id         String   @id @default(uuid())
+  user       User     @relation(fields: [userId], references: [id])
+  userId     String
+  tour       Tour     @relation(fields: [tourId], references: [id])
+  tourId     String
+  reviewDate DateTime @default(now())
+  rating     Int
+  comment    String?
+  isActive   Boolean  @default(true)
+}
